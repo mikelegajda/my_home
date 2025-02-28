@@ -2,27 +2,27 @@
   <div class="container-md beautiful-jekyll-footer">
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-        <div class="social-icons">
+        <div class="social-icons" style="margin-bottom: 1.5rem;">
           {% if site.email %}
-            <a href="mailto:{{ site.email }}" title="Email me">
+            <a href="mailto:{{ site.email }}" title="Email me" style="font-size: 1.6rem; margin: 0 0.5rem;">
               <i class="fas fa-envelope"></i>
             </a>
           {% endif %}
           
           {% if site.github_username %}
-            <a href="https://github.com/{{ site.github_username }}" title="GitHub">
+            <a href="https://github.com/{{ site.github_username }}" title="GitHub" style="font-size: 1.6rem; margin: 0 0.5rem;">
               <i class="fab fa-github"></i>
             </a>
           {% endif %}
 
           {% if site.linkedin_username %}
-            <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" style="font-size: 1.6rem; margin: 0 0.5rem;">
               <i class="fab fa-linkedin"></i>
             </a>
           {% endif %}
 
           {% if site.google_scholar %}
-            <a href="{{ site.google_scholar }}" title="Google Scholar">
+            <a href="{{ site.google_scholar }}" title="Google Scholar" style="font-size: 1.6rem; margin: 0 0.5rem;">
               <i class="ai ai-google-scholar"></i>
             </a>
           {% endif %}

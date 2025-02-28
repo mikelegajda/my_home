@@ -26,8 +26,8 @@
 }, 
  
 { 
-"title"    : "My website", 
-"desc"     : "My website", 
+"title"    : "Welcome", 
+"desc"     : "Welcome", 
 "category" : "page", 
 "url"      : "/my_home/", 
 "date"     : "January 1, 1970" 

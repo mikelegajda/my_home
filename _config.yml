@@ -10,7 +10,7 @@
 ############################
 
 # Name of website
-title: Welcome
+title: Mikele's Home
 
 # Your name to show in the footer 
 author: Mikele Gajda
@@ -24,10 +24,6 @@ baseurl: "/my_home" # the subpath of your site, e.g. /blog
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "Mikele"
 
 ################
 # --- Logo --- #

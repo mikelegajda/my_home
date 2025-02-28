@@ -78,7 +78,7 @@ social-network-links:
 #  mastodon: instance.url/@username
 #  bluesky: yourname
 #  ORCID: your ORCID ID
-#  google-scholar: your google scholar
+  google_scholar: "https://scholar.google.com/citations?user=NX0XyqUAAAAJ&hl=en&authuser=1"
 #  discord: "invite_code" or "users/userid" or "invite/invite_code"
 #  kaggle: yourname
 #  hackerrank: yourname
@@ -303,4 +303,9 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
+
+# Add these lines to your _config.yml file
+github_username: "your-github-username"    # e.g., "johndoe"
+linkedin_username: "your-linkedin-username" # e.g., "john-doe-123456789"
+
 

@@ -1131,11 +1131,10 @@ pre {
 }
 
 .publication-image {
-  width: 150px;  /* Set a fixed width */
-  height: 150px; /* Set a fixed height */
-  overflow: hidden;
-  margin-right: 20px;
-  flex-shrink: 0;
+  flex: 0 0 auto;
+  margin-right: 1rem;
+  height: 5rem;  /* Smaller thumbnail */
+  width: 5rem;   /* Smaller thumbnail */
 }
 
 .publication-image img {
@@ -1148,7 +1147,7 @@ pre {
 }
 
 .publication-content {
-  flex: 1;
+  flex: 1 1 auto;
 }
 
 .publication-title {
@@ -1213,16 +1212,10 @@ pre {
   margin: 0.75rem 0 0;
 }
 
-@media (max-width: 576px) {
-  .publication-preview {
-    flex-direction: column;
-  }
-  
+@media (max-width: 767px) {
   .publication-image {
-    width: 100%;
-    height: 200px;
-    margin-right: 0;
-    margin-bottom: 15px;
+    height: 4rem;
+    width: 4rem;
   }
 }
 

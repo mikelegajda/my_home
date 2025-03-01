@@ -2,7 +2,7 @@
 
 :root {
   /* config file CSS variables */
-  --page-col: #ffffff;
+  --page-col: #FFFFFF;
   --text-col: #404040;
   --link-col: #008AFF;
   --hover-col: #0085A1;
@@ -13,10 +13,6 @@
   --footer-text-col: #777777;
   --footer-link-col: #404040;
   --footer-hover-col: #0085A1;
-
-  /* NEW config file CSS variables */
-
-  }
 
   /* common CSS variables */
   --body-font: 'Lora', 'Times New Roman', serif;
@@ -1135,10 +1131,11 @@ pre {
 }
 
 .publication-image {
-  flex: 0 0 auto;
-  margin-right: 1rem;
-  height: 5rem;  /* Smaller thumbnail */
-  width: 5rem;   /* Smaller thumbnail */
+  width: 150px;  /* Set a fixed width */
+  height: 150px; /* Set a fixed height */
+  overflow: hidden;
+  margin-right: 20px;
+  flex-shrink: 0;
 }
 
 .publication-image img {
@@ -1151,7 +1148,7 @@ pre {
 }
 
 .publication-content {
-  flex: 1 1 auto;
+  flex: 1;
 }
 
 .publication-title {
@@ -1216,10 +1213,16 @@ pre {
   margin: 0.75rem 0 0;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 576px) {
+  .publication-preview {
+    flex-direction: column;
+  }
+  
   .publication-image {
-    height: 4rem;
-    width: 4rem;
+    width: 100%;
+    height: 200px;
+    margin-right: 0;
+    margin-bottom: 15px;
   }
 }
 

@@ -25,7 +25,7 @@ layout: page
     {% if thumbnail != "" %}
     <div class="publication-image">
       <a href="{{ publication.url | absolute_url }}" aria-label="Thumbnail">
-        <img src="{{ thumbnail | absolute_url }}" alt="Publication thumbnail">
+        <img src="{{ thumbnail | absolute_url }}" alt="Publication thumbnail" class="thumbnail-img">
       </a>
     </div>
     {% endif %}

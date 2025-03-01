@@ -1,14 +1,6 @@
 [ 
  
 { 
-"title"    : "Sample blog post to learn markdown tips", 
-"desc"     : "Sample blog post to learn markdown tips", 
-"category" : "test", 
-"url"      : "/my_home/28-02-2020-sample-markdown/", 
-"date"     : "February 28, 2020" 
-}, 
- 
-{ 
 "title"    : "Flake it till you make it", 
 "desc"     : "Flake it till you make it", 
 "category" : "books, test", 
@@ -26,10 +18,18 @@
 }, 
  
 { 
-"title"    : "Welcome", 
-"desc"     : "Welcome", 
+"title"    : "Mikele", 
+"desc"     : "Mikele", 
 "category" : "page", 
 "url"      : "/my_home/", 
+"date"     : "January 1, 1970" 
+}, 
+ 
+{ 
+"title"    : "Publications", 
+"desc"     : "Publications", 
+"category" : "page", 
+"url"      : "/my_home/publications/", 
 "date"     : "January 1, 1970" 
 }, 
  

@@ -24,6 +24,8 @@ baseurl: "/my_home" # the subpath of your site, e.g. /blog
 
 navbar-links:
   About Me: "aboutme"
+  Publications: "publications"
+  Blog: "blog"
 
 ################
 # --- Logo --- #
@@ -302,5 +304,10 @@ plugins:
 # Add these lines to your _config.yml file
 github_username: "mikelegajda"    # e.g., "johndoe"
 linkedin_username: "mikele-username" # e.g., "john-doe-123456789"
+
+collections:
+  publications:
+    output: true
+    permalink: /publications/:name/
 
 

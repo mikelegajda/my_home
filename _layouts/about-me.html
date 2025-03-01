@@ -9,7 +9,14 @@ layout: base
     <div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 {% endif %}">
       <!-- Photo section -->
       <div class="photo" style="text-align: center;">
-        <img src="{{ page.photo-url }}" alt="About Me Photo" style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover; display: block; margin: 0 auto;">
+        {% if page.photo-url %}
+          <img src="{{ page.photo-url | relative_url }}" alt="About Me Photo" style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover; display: block; margin: 0 auto;">
+        {% else %}
+          <!-- Fallback image or message if photo-url is not set -->
+          <div style="width: 200px; height: 200px; border-radius: 50%; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+            <span>Photo not available</span>
+          </div>
+        {% endif %}
       </div>
 
       {% if page.before-content %}

@@ -1,7 +1,7 @@
 ---
 layout: about-me
 title: About me 
-photo-url: /assets/img/avatar-icon.png
+photo-url: /assets/img/profile_new.png
 ---
 
 

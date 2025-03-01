@@ -4,38 +4,6 @@ layout: page
 
 {{ content }}
 
-<!-- Navigation Cards Section -->
-<div class="nav-cards-container">
-  <div class="row justify-content-center">
-    <div class="col-md-5 mb-4">
-      <div class="card h-100 nav-card">
-        <div class="card-body text-center">
-          <i class="fas fa-user-circle fa-3x mb-3"></i>
-          <h3 class="card-title">About Me</h3>
-          <p class="card-text">Learn more about my background, interests, and research focus.</p>
-          <a href="{{ '/aboutme' | absolute_url }}" class="btn btn-primary">View Profile</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-5 mb-4">
-      <div class="card h-100 nav-card">
-        <div class="card-body text-center">
-          <i class="fas fa-file-alt fa-3x mb-3"></i>
-          <h3 class="card-title">Publications</h3>
-          <p class="card-text">Browse through my academic publications and research papers.</p>
-          <a href="{{ '/publications' | absolute_url }}" class="btn btn-primary">View Publications</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Publications Section Divider -->
-<div class="section-divider">
-  <h2 class="section-heading">Recent Publications</h2>
-  <hr class="divider">
-</div>
-
 <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
 <ul class="publications-list list-unstyled" role="list">
   {% for publication in site.publications %}

@@ -10,7 +10,7 @@
 ############################
 
 # Name of website
-title: Mikele's Home
+title: Home 🏠
 
 # Your name to show in the footer 
 author: Mikele Gajda
@@ -24,6 +24,7 @@ baseurl: "/my_home" # the subpath of your site, e.g. /blog
 
 navbar-links:
   About Me: "aboutme"
+  CV: "curriculum"
   Publications: "publications"
   Blog: "blog"
 
@@ -157,6 +158,9 @@ footer-col: #244855;
 footer-text-col: #f4eded;
 footer-link-col: #e64833;
 footer-hover-col: #e64833;
+
+color:
+  primary: "#2c3e50"  # Default Beautiful Jekyll color
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour

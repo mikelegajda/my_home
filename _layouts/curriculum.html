@@ -1,0 +1,220 @@
+---
+layout: default
+---
+
+<style>
+.curriculum-section {
+    margin: 25px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.summary-box {
+    background-color: #f8f9fa;
+    border-left: 4px solid {{ site.color.primary }};
+    padding: 15px 20px;
+    margin: 20px 0 30px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.section-title {
+    color: {{ site.color.primary }};
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid {{ site.color.primary }};
+}
+
+.curriculum-item {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 2px solid #ddd;
+}
+
+.item-header {
+    margin-bottom: 12px;
+}
+
+.item-title {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.item-subtitle {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.item-meta {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.item-meta i {
+    margin-right: 5px;
+}
+
+.item-skills {
+    margin-top: 12px;
+}
+
+.skill-badge {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #444;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .curriculum-section {
+        padding: 15px;
+        margin: 20px 0;
+    }
+    
+    .curriculum-item {
+        padding-left: 15px;
+    }
+}
+
+.experience-highlights {
+    margin: 15px 0;
+    padding: 0 10px;
+}
+
+.highlights-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+
+.highlights-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.4;
+}
+
+.highlights-list li i {
+    color: #e64833;  /* matches your site's accent color */
+    margin-right: 10px;
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+</style>
+
+<div class="container">
+    <header class="header-page">
+        <h1 class="page-title">{{ page.title }}</h1>
+        {% if page.subtitle %}
+        <h2 class="page-subtitle">{{ page.subtitle }}</h2>
+        {% endif %}
+    </header>
+
+    {% if page.summary %}
+    <div class="summary-box">
+        {{ page.summary | markdownify }}
+        <div class="item-skills">
+            {% for skill in page.skills %}
+            <span class="skill-badge">{{ skill }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% endif %}
+
+    <div class="curriculum-section">
+        <h2 class="section-title">Education</h2>
+        {% for education in site.data.curriculum.education %}
+        <div class="curriculum-item">
+            <div class="item-header">
+                <h3 class="item-title">{{ education.degree }}</h3>
+                <div class="item-subtitle">{{ education.institution }}</div>
+                <div class="item-meta">
+                    {% if education.location %}
+                    <span><i class="fa fa-map-marker"></i>{{ education.location }}</span>
+                    {% endif %}
+                    <span style="margin: 0 8px">|</span>
+                    <span>{{ education.date }}</span>
+                </div>
+            </div>
+            {% if education.description %}
+            <p class="mb-2">{{ education.description }}</p>
+            {% endif %}
+            {% if education.grade %}
+            <p class="mb-2">{{ education.grade }}</p>
+            {% endif %}
+            {% if education.courses %}
+            <div class="item-skills">
+                {% for course in education.courses %}
+                <span class="skill-badge">{{ course }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="curriculum-section">
+        <h2 class="section-title">Experience</h2>
+        {% for experience in site.data.curriculum.experience %}
+        <div class="curriculum-item">
+            <div class="item-header">
+                <h3 class="item-title">{{ experience.position }}</h3>
+                <div class="item-subtitle">{{ experience.company }}</div>
+                <div class="item-meta">
+                    {% if experience.location %}
+                    <span><i class="fa fa-map-marker"></i>{{ experience.location }}</span>
+                    {% endif %}
+                    <span style="margin: 0 8px">|</span>
+                    <span>{{ experience.date }}</span>
+                </div>
+            </div>
+            {% if experience.description %}
+            <p class="mb-2">{{ experience.description }}</p>
+            {% endif %}
+
+            {% if experience.highlights %}
+            <div class="experience-highlights">
+                <ul class="highlights-list">
+                    {% for highlight in experience.highlights %}
+                    <li><i class="fas fa-caret-right"></i>{{ highlight }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if experience.technologies %}
+            <div class="item-skills">
+                {% for tech in experience.technologies %}
+                <span class="skill-badge">{{ tech }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="curriculum-section">
+        <h2 class="section-title">Skills</h2>
+        <div class="row">
+            {% for skill_category in site.data.curriculum.skills %}
+            <div class="col-md-6">
+                <h4 class="mt-2 mb-3" style="font-size: 1rem;">{{ skill_category.category }}</h4>
+                <div class="item-skills">
+                    {% for skill in skill_category.items %}
+                    <span class="skill-badge">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

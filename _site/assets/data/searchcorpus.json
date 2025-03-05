@@ -4,7 +4,7 @@
 "title"    : "Test post", 
 "desc"     : "Test post", 
 "category" : "test", 
-"url"      : "/my_home/05-03-2025-new_post/", 
+"url"      : "/my_home/blog/2025-03-05-new-post/", 
 "date"     : "March  5, 2025" 
 }, 
  
@@ -22,6 +22,14 @@
 "desc"     : "Blog", 
 "category" : "page", 
 "url"      : "/my_home/blog/", 
+"date"     : "January 1, 1970" 
+}, 
+ 
+{ 
+"title"    : "Mikele Gajda", 
+"desc"     : "Mikele Gajda", 
+"category" : "page", 
+"url"      : "/my_home/curriculum/", 
 "date"     : "January 1, 1970" 
 }, 
  

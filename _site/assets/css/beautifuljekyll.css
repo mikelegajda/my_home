@@ -2,23 +2,26 @@
 
 :root {
   /* config file CSS variables */
-  --page-col: #FFFFFF;
+  --page-col: #fbe9d0;
   --text-col: #404040;
-  --link-col: #008AFF;
-  --hover-col: #0085A1;
-  --navbar-col: #EAEAEA;
-  --navbar-text-col: #404040;
+  --link-col: #e64833;
+  --hover-col: #e64833;
+
+  --navbar-col: #244855;
+  --navbar-text-col: #ffffff;
   --navbar-border-col: #DDDDDD;
-  --footer-col: #EAEAEA;
-  --footer-text-col: #777777;
-  --footer-link-col: #404040;
-  --footer-hover-col: #0085A1;
+
+  --footer-col: #244855;
+  --footer-text-col: #f4eded;
+  --footer-link-col: #e64833;
+  --footer-hover-col: #e64833;
 
   /* common CSS variables */
   --body-font: 'Lora', 'Times New Roman', serif;
   --header-font: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --mid-col: #808080;
 }
+
 
 /* --- General --- */
 
@@ -66,7 +69,8 @@ h1, h2, h3, h4 {
   margin-top: 1.25rem;
 }
 a {
-  color: var(--link-col);
+  /* color: var(--link-col); */
+  color: var(--navbar-col);
 }
 a:hover,
 a:focus {
@@ -483,12 +487,13 @@ footer .footer-custom-content {
 .post-preview a {
   text-decoration: none;
   font-family: var(--header-font);
-  color: var(--text-col);
+  /* color: var(--text-col); */
+  color: var(--navbar-col);
 }
 
 .post-preview a:focus,
 .post-preview a:hover {
-  text-decoration: none;
+  text-decoration: underline;
   color: var(--hover-col);
 }
 
@@ -1111,6 +1116,18 @@ pre {
 
 /* --- Additional CSS --- */
 
+.btn-primary {
+  background-color: var(--navbar-col);
+  border-color: var(--navbar-col);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #d13d29;
+  border-color: #d13d29;
+}
+
 /* --- Publications page --- */
 
 .publications-list {
@@ -1150,13 +1167,13 @@ pre {
   flex: 1 1 auto;
 }
 
-.publication-title {
+.publication-title .post-title{
   font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
-.publication-subtitle {
+.publication-subtitle .post-subtitle{
   font-size: 1.25rem;
   font-weight: 300;
   margin: 0 0 0.5rem;
@@ -1229,20 +1246,22 @@ pre {
   }
 }
 
-
 /* Navigation Cards */
 .nav-cards-container {
   margin: 2rem 0 3rem;
 }
 
-.nav-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.nav-cards-container .nav-card {
+  position: relative;
+  transition: all 0.3s ease;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  will-change: transform;
+  background-color: #fceedd;
 }
 
-.nav-card:hover {
+.nav-cards-container .nav-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
@@ -1262,5 +1281,20 @@ pre {
 .divider {
   width: 100px;
   margin: 1rem auto 2rem;
-  border-top: 3px solid #007bff;
+  border-top: 3px solid var(--text-col);
+}
+
+
+
+.post-card {
+  background: #fceedd;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  padding: 25px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+ 
+.post-card:hover {
+  transform: translateY(-5px);
 }

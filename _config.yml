@@ -185,7 +185,7 @@ color:
 #################################
 
 # Fill in your Google Analytics tag ID (or "Measurement ID") to track your website usage
-gtag: "GTM-W5DPH8Q7"
+# gtag: "G-XXXXXXXXX"
 
 # Fill in your Cloudflare Analytics beacon token to track your website using Cloudflare Analytics
 #cloudflare_analytics: ""

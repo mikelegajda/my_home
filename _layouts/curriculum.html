@@ -130,38 +130,8 @@ layout: default
 
     {% endif %}
 
-    <div class="curriculum-section">
-        <h2 class="section-title">Education</h2>
-        {% for education in site.data.curriculum.education %}
-        <div class="curriculum-item">
-            <div class="item-header">
-                <h3 class="item-title">{{ education.degree }}</h3>
-                <div class="item-subtitle">{{ education.institution }}</div>
-                <div class="item-meta">
-                    {% if education.location %}
-                    <span><i class="fa fa-map-marker"></i>{{ education.location }}</span>
-                    {% endif %}
-                    <span style="margin: 0 8px">|</span>
-                    <span>{{ education.date }}</span>
-                </div>
-            </div>
-            {% if education.description %}
-            <p class="mb-2">{{ education.description }}</p>
-            {% endif %}
-            {% if education.grade %}
-            <p class="mb-2">{{ education.grade }}</p>
-            {% endif %}
-            {% if education.courses %}
-            <div class="item-skills">
-                {% for course in education.courses %}
-                <span class="skill-badge">{{ course }}</span>
-                {% endfor %}
-            </div>
-            {% endif %}
-        </div>
-        {% endfor %}
-    </div>
 
+    <!-- EXPERIENCE -->
     <div class="curriculum-section">
         <h2 class="section-title">Experience</h2>
         {% for experience in site.data.curriculum.experience %}
@@ -202,6 +172,40 @@ layout: default
         {% endfor %}
     </div>
 
+    <!-- EDUCATION -->
+    <div class="curriculum-section">
+        <h2 class="section-title">Education</h2>
+        {% for education in site.data.curriculum.education %}
+        <div class="curriculum-item">
+            <div class="item-header">
+                <h3 class="item-title">{{ education.degree }}</h3>
+                <div class="item-subtitle">{{ education.institution }}</div>
+                <div class="item-meta">
+                    {% if education.location %}
+                    <span><i class="fa fa-map-marker"></i>{{ education.location }}</span>
+                    {% endif %}
+                    <span style="margin: 0 8px">|</span>
+                    <span>{{ education.date }}</span>
+                </div>
+            </div>
+            {% if education.description %}
+            <p class="mb-2">{{ education.description }}</p>
+            {% endif %}
+            {% if education.grade %}
+            <p class="mb-2">{{ education.grade }}</p>
+            {% endif %}
+            {% if education.courses %}
+            <div class="item-skills">
+                {% for course in education.courses %}
+                <span class="skill-badge">{{ course }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- SKILLS -->
     <div class="curriculum-section">
         <h2 class="section-title">Skills</h2>
         <div class="row">

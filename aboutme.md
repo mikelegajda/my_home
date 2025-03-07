@@ -10,4 +10,5 @@ My name is Mikele and I'm a PhD student at the University of Lausanne🇨🇭sup
 Before that, I obtained my Master's degree in Computer Science and Engineering from the University of Brescia 🇮🇹 with the final grade of 110/110 defending a thesis in optimization algorithms developed in collaboration with the Technical University of Denmark (DTU) 🇩🇰. During my Master thesis project, I had the opportunity to make a four-months external research period at DTU. Here it was my privilege to work with Prof. David Pisinger.
 
 Link to CV: [Curriculum Vitae](/curriculum)
+
 Let's connect on: [Linkedin](https://linkedin.com/in/mikele-gajda)

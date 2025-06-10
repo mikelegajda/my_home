@@ -16,7 +16,7 @@ title: Home 🏠
 author: Mikele Gajda
 
 url: "https://mikelegajda.com" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "/my_home" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 
 ###############################################
 # --- List of links in the navigation bar --- #

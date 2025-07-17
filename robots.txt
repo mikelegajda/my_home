@@ -1,3 +1,4 @@
+# Preferred URL format: always use trailing slashes for pages (e.g., /aboutme/)
 User-agent: *
 Allow: /
 Sitemap: https://mikelegajda.com/sitemap.xml 

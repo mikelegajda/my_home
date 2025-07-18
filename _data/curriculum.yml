@@ -20,7 +20,7 @@ experience:
     location: "Lausanne, Switzerland"
     description: "Combinatorial optimization; Routing and Scheduling problems; Mathematical modeling."
     highlights:
-      - "Published (2) and submitted (2) articles to top-field Q1 research international journals."
+      - "Published (3) and submitted (1) articles to top-field Q1 research international journals."
       - "Extended my research network and collaborated with more than 8 researcher from 6 different institutions."
       - "Lectured practical sessions in Master courses at EPFL and Unil ."
       - "Obtained Research Grant for Mobility - HaslerStiftung (10,000 CHF)."
@@ -34,7 +34,7 @@ experience:
 
   - position: "Visiting Researcher"
     company: "Polytechnique Montréal (Québec, CA)"
-    date: 2023-
+    date: 2023
     location: "Montréal (Québec), Canada"
     description: "Explored column generation and branch-and-price algorithms applied to challenging routing optimization problems. Investigated methodologies at the intersection of machine learning and operations research.
     \n
@@ -42,7 +42,7 @@ experience:
 
   - position: "Visiting Researcher"
     company: "Ivey Business School (Ontario, CA)"
-    date: 2023-
+    date: 2023
     location: "London (Ontario), Canada"
     description: "Explored exact approaches through the modeling of robust mathematical models with efficient valid inequalities. Applied Benders decomposition approaches in CPLEX to evaluate the potential impacts in the solution process."
 

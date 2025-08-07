@@ -2,6 +2,7 @@
 layout: about-me
 title: About me 
 photo-url: /assets/img/profile_new.png
+permalink: /aboutme/
 ---
 
 

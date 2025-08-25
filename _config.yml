@@ -157,20 +157,21 @@ linkedin_username: mikele-gajda
 # footer-link-col: "#404040"
 # footer-hover-col: "#0085A1"
 
-page-col: #fbe9d0;
-text-col: #404040;
-link-col: #e64833;
-hover-col: #e64833;
-navbar-col: #244855;
-navbar-text-col: #ffffff;
-navbar-border-col: #DDDDDD;
-footer-col: #244855;
-footer-text-col: #f4eded;
-footer-link-col: #e64833;
-footer-hover-col: #e64833;
+# Modern Apple-inspired color scheme
+page-col: "#FFFFFF"                    # Pure white background
+text-col: "#1D1D1F"                    # Apple's dark gray for text
+link-col: "#007AFF"                    # Apple blue for links
+hover-col: "#0051D5"                   # Darker blue for hover
+navbar-col: "#FBFBFD"                  # Very light gray navbar with subtle transparency
+navbar-text-col: "#1D1D1F"            # Dark text on light navbar
+navbar-border-col: "#E5E5E7"          # Light gray border
+footer-col: "#F5F5F7"                 # Apple's light gray footer
+footer-text-col: "#6E6E73"            # Apple's medium gray for footer text
+footer-link-col: "#007AFF"            # Apple blue for footer links
+footer-hover-col: "#0051D5"           # Darker blue for footer hover
 
 color:
-  primary: "#2c3e50"  # Default Beautiful Jekyll color
+  primary: "#007AFF"                   # Apple blue as primary color
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
@@ -180,11 +181,11 @@ color:
 #page-img: "/assets/img/bgimage.png"
 
 # Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
-#mobile-theme-col: "#0085A1"
+mobile-theme-col: "#FBFBFD"
 
 # For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
-#site-css:
-#  - "/assets/css/custom-styles.css"
+site-css:
+  - "/assets/css/custom-modern.css"
 
 # If you have common JavaScript files that should be included in every page, list them here
 #site-js:

@@ -5,10 +5,10 @@ authors: "Gajda M., Ranza F., Mansini R., Gallay O."
 journal: "Transportation Research: Part C"
 year: 2024
 doi: "https://doi.org/10.1016/j.trc.2025.105250"
+description: "Innovative last-mile delivery paradigm using public transportation networks and crowdshipping for sustainable urban logistics."
 abstract: "In this paper, we deal with an innovative last-mile delivery paradigm that uses commuters traveling on public transportation networks as crowdshippers to offer a delivery model with minimal environmental impact that takes advantage of technological advancements, enhanced infrastructure, and growing electronic device usage. At the beginning of each delivery service period, parcels located at selected public transport stations, are assigned to a set of crowdshippers (commuters). These crowdshippers collect and deliver the parcels as part of their regular journeys through the public transport network, without deviating from their usual routes. A delivery company ensures, through a backup service, the final delivery of parcels that do not reach their final destination. The problem looks for the optimal schedule and route for each parcel while minimizing overall delivery expenses. We call this problem the Public Transport based Crowdshipping Problem (PTCP). We propose a compact Mixed Integer Linear Programming formulation strengthened with valid inequalities and develop an Adaptive Large Neighborhood Search to address large-scale instances. The experimental analysis, conducted on a large set of instances, shows the effectiveness of the proposed heuristic method when compared to the exact model solution. Sensitivity analysis reveals that crowdshipping and backup delivery costs significantly influence the total system cost."
-
 thumbnail-img: /assets/img/trc.jpg
-tags: [CrowdshippingLast-Mile Delivery, Public Transportation Network, Adaptive Large Neighborhood Searchm, Branch-and-Cut]
+tags: [Crowdshipping, Last-Mile Delivery, Public Transportation Network, Adaptive Large Neighborhood Search, Branch-and-Cut]
 ---
 
 ## Abstract

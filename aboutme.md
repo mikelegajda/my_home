@@ -3,6 +3,7 @@ layout: about-me
 title: About me 
 photo-url: /assets/img/profile_new.png
 permalink: /aboutme/
+description: "Learn more about Mikele Gajda, PhD student at University of Lausanne working on optimization algorithms for sustainable mobility and transportation."
 ---
 
 

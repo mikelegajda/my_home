@@ -128,7 +128,16 @@ edit_page_button: true
 navbar-var-length: false
 
 # The keywords to associate with your website, for SEO purposes
-#keywords: "my,list,of,keywords"
+keywords: "Mikele Gajda, Operations Research, Optimization, PhD student, University of Lausanne, Reinforcement Learning, Data Science, Transportation, Logistics"
+
+# SEO settings
+description: "Mikele Gajda - PhD student in Operations Research at University of Lausanne. Specialized in optimization algorithms for sustainable mobility and transportation."
+author_bio: "Operations Research Engineer with expertise in optimization algorithms, data analysis, and software development."
+
+# Social media
+twitter_username: null
+github_username: mikelegajda
+linkedin_username: mikele-gajda
 
 ######################################
 # --- Colours / background image --- #
@@ -314,13 +323,14 @@ exclude:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
 
 # Add these lines to your _config.yml file
 github_username: "mikelegajda"    # e.g., "johndoe"
-linkedin_username: "mikele-username" # e.g., "john-doe-123456789"
 
 collections:
   publications:

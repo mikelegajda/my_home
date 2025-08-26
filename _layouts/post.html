@@ -4,73 +4,124 @@ layout: base
 
 {% include header.html type="post" %}
 
-<main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">
+<main class="{% if page.full-width %} container-fluid {% else %} container {% endif %}">
   <div class="row">
-    <div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 {% endif %}">
+    <div class="{% if page.full-width %} col {% else %} col-xl-10 offset-xl-1 col-lg-12 {% endif %}">
 
-      {% if page.gh-repo %}
-        {% assign gh_split =  page.gh-repo | split:'/'  %}
-        {% assign gh_user =  gh_split[0]  %}
-        {% assign gh_repo =  gh_split[1]  %}
+      <!-- Article Header -->
+      <article class="blog-post-article">
+        <header class="blog-post-header">
+          <div class="blog-post-meta">
+            <time class="blog-post-date">{{ page.date | date: "%B %-d, %Y" }}</time>
+            {% if page.readtime %}
+            <span class="blog-post-readtime">• {{ page.readtime }} min read</span>
+            {% else %}
+            <span class="blog-post-readtime">• {% include readtime.html %}</span>
+            {% endif %}
+            {% if page.author %}
+            <span class="blog-post-author">• by {{ page.author }}</span>
+            {% endif %}
+          </div>
+          
+          <h1 class="blog-post-title">{{ page.title | strip_html }}</h1>
+          
+          {% if page.subtitle %}
+          <h2 class="blog-post-subtitle">{{ page.subtitle | strip_html }}</h2>
+          {% endif %}
+        </header>
 
-        <div id="header-gh-btns">
-          {% if page.gh-badge.size > 0 %}
-            {% for badge in page.gh-badge %}
-              {% case badge %}
-                {% when 'star'%}
-                  <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=star&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
-                {% when 'watch'%}
-                  <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=watch&v=2&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
-                {% when 'fork'%}
-                  <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=fork&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
-                {% when 'follow'%}
-                  <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&type=follow&count=true" frameborder="0" scrolling="0" width="220px" height="20px"></iframe>
-              {% endcase %}
+        {% if page.gh-repo %}
+          {% assign gh_split =  page.gh-repo | split:'/'  %}
+          {% assign gh_user =  gh_split[0]  %}
+          {% assign gh_repo =  gh_split[1]  %}
+
+          <div id="header-gh-btns">
+            {% if page.gh-badge.size > 0 %}
+              {% for badge in page.gh-badge %}
+                {% case badge %}
+                  {% when 'star'%}
+                    <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=star&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
+                  {% when 'watch'%}
+                    <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=watch&v=2&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
+                  {% when 'fork'%}
+                    <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=fork&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
+                  {% when 'follow'%}
+                    <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&type=follow&count=true" frameborder="0" scrolling="0" width="220px" height="20px"></iframe>
+                {% endcase %}
+              {% endfor %}
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if page.before-content %}
+          <div class="before-content">
+            {% for file in page.before-content %}
+              {% include {{ file }} %}
             {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Article Content -->
+        <div class="blog-post-content">
+          {{ content }}
+        </div>
+
+        <!-- Article Footer -->
+        <footer class="blog-post-footer">
+          <!-- Social Share Buttons -->
+          <div class="blog-post-share">
+            <h4>Share this article</h4>
+            <div class="share-buttons">
+              <a href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ site.url }}{{ page.url }}" 
+                 class="share-btn twitter" target="_blank" rel="noopener">
+                <i class="fab fa-twitter"></i> Twitter
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" 
+                 class="share-btn linkedin" target="_blank" rel="noopener">
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="mailto:?subject={{ page.title | uri_escape }}&body={{ site.url }}{{ page.url }}" 
+                 class="share-btn email">
+                <i class="fas fa-envelope"></i> Email
+              </a>
+            </div>
+          </div>
+        </footer>
+      </article>
+
+      <!-- Navigation -->
+      <nav class="blog-post-navigation">
+        <div class="row">
+          {% if page.previous.url %}
+          <div class="col-md-6 col-12 mb-3 mb-md-0">
+            <div class="nav-post prev-post">
+              <span class="nav-label">Previous Article</span>
+              <a href="{{ page.previous.url | relative_url }}" class="nav-link">
+                <i class="fas fa-arrow-left"></i>
+                {{ page.previous.title | strip_html | truncate: 50 }}
+              </a>
+            </div>
+          </div>
+          {% else %}
+          <div class="col-md-6 col-12 mb-3 mb-md-0">
+            <!-- Empty space for alignment when no previous post -->
+          </div>
+          {% endif %}
+          
+          {% if page.next.url %}
+          <div class="col-md-6 col-12">
+            <div class="nav-post next-post">
+              <span class="nav-label">Next Article</span>
+              <a href="{{ page.next.url | relative_url }}" class="nav-link">
+                {{ page.next.title | strip_html | truncate: 50 }}
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
           {% endif %}
         </div>
-      {% endif %}
+      </nav>
 
-      {% if page.before-content %}
-        <div class="before-content">
-          {% for file in page.before-content %}
-            {% include {{ file }} %}
-          {% endfor %}
-        </div>
-      {% endif %}
-
-      <div class="blog-post">
-        {{ content }}
-      </div>
-
-      {% if page.tags.size > 0 %}
-        <div class="blog-tags">
-          <span>Tags:</span>
-          {% for tag in page.tags %}
-            <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
-          {% endfor %}
-        </div>
-      {% endif %}
-
-
-      <ul class="pagination blog-pager">
-        {% if page.previous.url %}
-        <li class="page-item previous">
-          <a class="page-link" href="{{ page.previous.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title | strip_html | xml_escape}}">
-            <i class="fas fa-arrow-left" alt="Previous Post"></i>
-            <span class="d-none d-sm-inline-block">Previous Post</span>
-          </a>
-        </li>
-        {% endif %}
-        {% if page.next.url %}
-        <li class="page-item next">
-          <a class="page-link" href="{{ page.next.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title | strip_html | xml_escape}}">
-            <span class="d-none d-sm-inline-block">Next Post</span>
-            <i class="fas fa-arrow-right" alt="Next Post"></i>
-          </a>
-        </li>
-        {% endif %}
-      </ul>
       {% include comments.html %}
     </div>
   </div>

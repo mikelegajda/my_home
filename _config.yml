@@ -27,7 +27,7 @@ navbar-links:
   About Me: "aboutme"
   CV: "curriculum"
   Publications: "publications"
-  # Blog: "blog"
+  Blog: "blog"
 
 ################
 # --- Logo --- #

@@ -26,7 +26,19 @@
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
+            {% assign is_active = false %}
+            {% if link[1] == page.url or link[1] == page.permalink %}
+              {% assign is_active = true %}
+            {% elsif link[1] == 'blog' and page.url contains '/blog/' %}
+              {% assign is_active = true %}
+            {% elsif link[1] == 'aboutme' and page.url contains '/aboutme' %}
+              {% assign is_active = true %}
+            {% elsif link[1] == 'curriculum' and page.url contains '/curriculum' %}
+              {% assign is_active = true %}
+            {% elsif link[1] == 'publications' and page.url contains '/publications' %}
+              {% assign is_active = true %}
+            {% endif %}
+            <a class="nav-link{% if is_active %} active{% endif %}" href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
           </li>
         {%- endif -%}
       {%- endfor -%}

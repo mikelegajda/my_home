@@ -1159,13 +1159,12 @@ pre {
 .publication-image {
   flex: 0 0 auto;
   margin-right: 1rem;
-  height: 5rem;  /* Smaller thumbnail */
-  width: 5rem;   /* Smaller thumbnail */
+  height: auto;  /* Let custom CSS handle height */
+  width: auto;   /* Let custom CSS handle width */
 }
 
 .publication-image img {
-  max-height: 100%;
-  max-width: 100%;
+  /* Removed conflicting sizing - let custom-modern.css handle it */
   border: 1px solid #eee;
   padding: 2px;
   object-fit: cover;

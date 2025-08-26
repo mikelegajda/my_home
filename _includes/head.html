@@ -146,7 +146,8 @@
   {% if page.url %}
     {% assign canonical_url = page.url | absolute_url %}
     {% unless canonical_url contains '.' %}
-      {% unless canonical_url endswith '/' %}
+      {% assign url_last_char = canonical_url | slice: -1 %}
+      {% unless url_last_char == '/' %}
         {% assign canonical_url = canonical_url | append: '/' %}
       {% endunless %}
     {% endunless %}

@@ -24,10 +24,11 @@ baseurl: "" # the subpath of your site, e.g. /blog
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
-  CV: "curriculum"
-  Publications: "publications"
+  Home: ""
   Blog: "blog"
+  Publications: "publications"
+  CV: "curriculum"
+  About Me: "aboutme"
 
 ################
 # --- Logo --- #
@@ -293,6 +294,8 @@ paginate: 5
 
 kramdown:
   input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
 
 # Default YAML values (more information on Jekyll's site)
 defaults:

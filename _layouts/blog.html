@@ -42,11 +42,6 @@ layout: page
         <div class="blog-card-content">
           <div class="blog-card-meta">
             <time class="blog-date">{{ post.date | date: "%B %-d, %Y" }}</time>
-            {% if post.readtime %}
-            <span class="blog-readtime">• {{ post.readtime }} min read</span>
-            {% else %}
-            <span class="blog-readtime">• {% include readtime.html %}</span>
-            {% endif %}
           </div>
           
           <h2 class="blog-card-title">

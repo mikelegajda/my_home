@@ -13,11 +13,6 @@ layout: base
         <header class="blog-post-header">
           <div class="blog-post-meta">
             <time class="blog-post-date">{{ page.date | date: "%B %-d, %Y" }}</time>
-            {% if page.readtime %}
-            <span class="blog-post-readtime">• {{ page.readtime }} min read</span>
-            {% else %}
-            <span class="blog-post-readtime">• {% include readtime.html %}</span>
-            {% endif %}
             {% if page.author %}
             <span class="blog-post-author">• by {{ page.author }}</span>
             {% endif %}

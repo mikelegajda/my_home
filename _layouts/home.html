@@ -4,41 +4,161 @@ layout: page
 
 {{ content }}
 
-<!-- Navigation Cards Section -->
-<div class="nav-cards-container">
-  <div class="row justify-content-center">
-    <div class="col-md-5 mb-4">
-      <div class="card h-100 nav-card">
-        <div class="card-body text-center">
-          <i class="fas fa-user-circle fa-3x mb-3"></i>
-          <h3 class="card-title">About Me</h3>
-          <p class="card-text">Learn more about my background, interests, and research focus.</p>
-          <a href="{{ '/aboutme/' | absolute_url }}" class="btn btn-primary">View Profile</a>
-        </div>
+<!-- Hero About Section -->
+<div class="hero-about-section">
+  <div class="row align-items-center">
+    <div class="col-lg-4 text-center mb-4 mb-lg-0">
+      <div class="profile-image-container">
+        <img src="/assets/img/profile_new.png" alt="Mikele Gajda" class="profile-image">
       </div>
     </div>
-    <div class="col-md-5 mb-4">
-      <div class="card h-100 nav-card">
-        <div class="card-body text-center">
-          <i class="fas fa-file-alt fa-3x mb-3"></i>
-          <h3 class="card-title">Publications</h3>
-          <p class="card-text">Browse through my academic publications and research papers.</p>
-          <a href="{{ '/publications/' | absolute_url }}" class="btn btn-primary">View Publications</a>
+    <div class="col-lg-8">
+      <div class="about-content">
+        <h2 class="about-title">Hello, I'm Mikele! 👋</h2>
+        <p class="about-description">
+          My name is Mikele and I hold a PhD in Operations Research from the the University of Lausanne🇨🇭 where I was supervised by Prof. Olivier Gallay. I mainly worked on developing optimization algorithms for sustainable mobility and transportation. During this period I have already had the opportunity to spend some time abroad as a visiting researcher at CIRRELT, Polytechnique Montréal 🇨🇦 working with Prof. Thibaut Vidal, and at Ivey Business School...
+        </p>
+        <p class="about-description">
+          I obtained my Master's in Computer Science and Engineering from the University of Brescia 🇮🇹, including research at the Technical University of Denmark (DTU) 🇩🇰.
+        </p>
+        <div class="about-links">
+          <a href="/aboutme/" class="btn btn-primary me-3">Learn More About Me</a>
+          <a href="https://linkedin.com/in/mikele-gajda" target="_blank" class="btn btn-outline-primary">
+            <i class="fab fa-linkedin"></i> Connect
+          </a>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Publications Section Divider -->
+<!-- Quick Navigation Section -->
 <div class="section-divider">
-  <h2 class="section-heading">Recent Publications</h2>
+  <h2 class="section-heading">Explore My Work</h2>
+  <hr class="divider">
+</div>
+
+<div class="quick-nav-container">
+  <div class="row g-4 justify-content-center">
+    <div class="col-6 col-sm-6 col-md-3">
+      <a href="/publications/" class="quick-nav-card">
+        <div class="card-icon">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <h3 class="card-title">Academic Articles</h3>
+      </a>
+    </div>
+
+    <div class="col-6 col-sm-6 col-md-3">
+      <a href="/blog/" class="quick-nav-card">
+        <div class="card-icon">
+          <i class="fas fa-blog"></i>
+        </div>
+        <h3 class="card-title">Blog</h3>
+      </a>
+    </div>
+    
+    <div class="col-6 col-sm-6 col-md-3">
+      <a href="/curriculum/" class="quick-nav-card">
+        <div class="card-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3 class="card-title">CV</h3>
+      </a>
+    </div>
+    
+    <div class="col-6 col-sm-6 col-md-3">
+      <a href="mailto:mikelegajda@gmail.com" class="quick-nav-card">
+        <div class="card-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3 class="card-title">Contact</h3>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Latest Blog Posts Section -->
+{% assign recent_posts = site.posts | limit: 3 %}
+{% if recent_posts.size > 0 %}
+<div class="section-divider">
+  <h2 class="section-heading">Latest from the Blog</h2>
+  <hr class="divider">
+</div>
+
+<div class="latest-posts-container">
+  <div class="row g-4">
+    {% for post in recent_posts %}
+    <div class="col-md-4">
+      <article class="latest-post-card">
+        {% if post.thumbnail-img or post.cover-img %}
+          {% capture thumbnail %}
+            {% if post.thumbnail-img %}
+              {{ post.thumbnail-img }}
+            {% elsif post.cover-img %}
+              {% if post.cover-img.first %}
+                {{ post.cover-img[0].first.first }}
+              {% else %}
+                {{ post.cover-img }}
+              {% endif %}
+            {% endif %}
+          {% endcapture %}
+          {% assign thumbnail=thumbnail | strip %}
+          {% if thumbnail != "" %}
+          <div class="post-image">
+            <a href="{{ post.url | absolute_url }}">
+              <img src="{{ thumbnail | absolute_url }}" alt="{{ post.title }}" loading="lazy">
+            </a>
+          </div>
+          {% endif %}
+        {% endif %}
+        
+        <div class="post-content">
+          <div class="post-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+            {% if post.readtime %}
+              <span class="read-time">{{ post.readtime }} min read</span>
+            {% endif %}
+          </div>
+          
+          <h3 class="post-title">
+            <a href="{{ post.url | absolute_url }}">{{ post.title | strip_html }}</a>
+          </h3>
+          
+          {% if post.subtitle %}
+          <p class="post-subtitle">{{ post.subtitle | strip_html }}</p>
+          {% endif %}
+          
+          {% if post.excerpt %}
+          <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+          {% endif %}
+          
+          <a href="{{ post.url | absolute_url }}" class="read-more-link">
+            <span>Read More</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+    </div>
+    {% endfor %}
+  </div>
+  
+  <div class="text-center mt-4">
+    <a href="/blog/" class="btn btn-outline-primary btn-lg">View All Posts</a>
+  </div>
+</div>
+{% endif %}
+
+<!-- Featured Publications Section -->
+<div class="section-divider">
+  <h2 class="section-heading">Featured Publications</h2>
   <hr class="divider">
 </div>
 
 <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
 <ul class="publications-list list-unstyled" role="list">
-  {% for publication in site.publications %}
+  {% assign featured_publications = site.publications | limit: 2 %}
+  {% for publication in featured_publications %}
   <li class="publication-preview">
     {% capture thumbnail %}
       {% if publication.thumbnail-img %}
@@ -129,3 +249,7 @@ layout: page
   </li>
   {% endfor %}
 </ul>
+
+<div class="text-center mt-4">
+  <a href="/publications/" class="btn btn-outline-primary btn-lg">View All Publications</a>
+</div>

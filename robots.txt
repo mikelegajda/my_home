@@ -1,13 +1,1 @@
-User-agent: *
-Allow: /
-
-# Disallow crawling of admin and system files
-Disallow: /_*
-Disallow: /assets/data/
-Disallow: /.well-known/
-
-# Sitemap location
-Sitemap: https://mikelegajda.com/sitemap.xml
-
-# Crawl delay for respectful crawling
-Crawl-delay: 1 
+utility/robots.txt

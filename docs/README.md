@@ -164,14 +164,6 @@ bundle exec jekyll build
 
 This project uses the Beautiful Jekyll theme. See `LICENSE` for details.
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test locally
-5. Submit a pull request
-
 ---
 
 For more information about Jekyll, visit [jekyllrb.com](https://jekyllrb.com/)

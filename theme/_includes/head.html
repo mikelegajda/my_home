@@ -180,6 +180,12 @@
   <link rel="stylesheet" href="{{ "/assets/css/staticman.css" | relative_url }}">
   {% endif %}
 
+  <!-- Structured Data -->
+  {% include structured-data-person.html %}
+  {% include structured-data-article.html %}
+  {% include structured-data-publication.html %}
+  {% include structured-data-breadcrumb.html %}
+
   {% assign favicon_exists = site.static_files | where: "path", "/favicon.ico" | size %}
   {% if favicon_exists == 1 %}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" />

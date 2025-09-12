@@ -1,0 +1,35 @@
+<!-- Breadcrumb Structured Data -->
+{% unless page.url == "/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.url }}"
+    }
+    {% assign url_parts = page.url | split: '/' %}
+    {% assign current_url = "" %}
+    {% for part in url_parts %}
+      {% unless part == "" %}
+        {% assign current_url = current_url | append: "/" | append: part %}
+        {% assign position = forloop.index %}
+        ,{
+          "@type": "ListItem",
+          "position": {{ position }},
+          {% if forloop.last %}
+          "name": "{{ page.title | default: part | capitalize }}"
+          {% else %}
+          "name": "{{ part | capitalize }}",
+          "item": "{{ site.url }}{{ current_url }}"
+          {% endif %}
+        }
+      {% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endunless %}

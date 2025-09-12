@@ -7,7 +7,7 @@ author: "Mikele Gajda"
 cover-img: "/assets/img/blog_2.jpeg"    
 thumbnail-img: "/assets/img/blog_2.jpeg"  
 tags: [machine learning, sustainability, research, optimization]                                        
-description: "Predict then optimize"
+description: "Explore the predict-then-optimize framework with a practical example of electric bus deployment. Learn how prediction errors can impact optimization decisions and discover strategies for building robust solutions in uncertain environments."
 ---
 
 The idea of using mathematics to helps us make smarter and more efficient choices, is definitely fascinating to me. Recently, I tried to play with a simple yet intriguing problem that felt both interesting and practically meaningful. The problem tries to find an answer to the following question: **how many electric buses should a city deploy tomorrow to cut pollution?**  

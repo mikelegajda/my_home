@@ -1,0 +1,33 @@
+<!-- Structured Data for Person/Author -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.author }}",
+  "url": "{{ site.url }}",
+  "jobTitle": "PhD in Operations Research",
+  "description": "{{ site.description }}",
+  "image": "{{ site.avatar | absolute_url }}",
+  "email": "mikelegajda@gmail.com",
+  "alumniOf": {
+    "@type": "Organization",
+    "name": "University of Lausanne"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "University of Lausanne"
+  },
+  "knowsAbout": [
+    "Operations Research",
+    "Optimization",
+    "Machine Learning",
+    "Sustainable Transportation",
+    "Data Science"
+  ],
+  "sameAs": [
+    "https://github.com/mikelegajda",
+    "https://linkedin.com/in/mikele-gajda",
+    "{{ site.social-network-links.google_scholar }}"
+  ]
+}
+</script>

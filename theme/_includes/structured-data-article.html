@@ -1,0 +1,40 @@
+<!-- Structured Data for Blog Article -->
+{% if page.layout == "post" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title }}",
+  "description": "{{ page.description | default: page.subtitle }}",
+  "image": "{{ page.cover-img | default: page.thumbnail-img | absolute_url }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: site.author }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.avatar | absolute_url }}"
+    }
+  },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "url": "{{ page.url | absolute_url }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  {% if page.tags %}
+  "keywords": [
+    {% for tag in page.tags %}
+    "{{ tag }}"{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  {% endif %}
+  "articleSection": "Blog",
+  "wordCount": {{ page.content | number_of_words }}
+}
+</script>
+{% endif %}

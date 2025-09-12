@@ -289,7 +289,7 @@ date_format: "%B %-d, %Y"
 timezone: "Europe/Rome"
 markdown: kramdown
 highlighter: rouge
-permalink: /:day-:month-:year-:title/
+permalink: /blog/:title/
 paginate: 5
 
 kramdown:
@@ -333,6 +333,25 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-feed
+
+# SEO optimization settings
+lang: en_US
+locale: en_US
+
+# Additional SEO settings
+twitter:
+  username: 
+  card: summary
+
+facebook:
+  app_id: 
+  publisher: 
+
+social:
+  name: Mikele Gajda
+  links:
+    - https://github.com/mikelegajda
+    - https://linkedin.com/in/mikele-gajda
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189

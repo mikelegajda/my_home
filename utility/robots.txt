@@ -1,10 +1,18 @@
 User-agent: *
 Allow: /
 
-# Disallow crawling of admin and system files
-Disallow: /_*
+# Only disallow specific directories that shouldn't be indexed
 Disallow: /assets/data/
 Disallow: /.well-known/
+Disallow: /config/
+Disallow: /theme/
+Disallow: /utility/
+Disallow: /docs/
+
+# Allow important content directories
+Allow: /_posts/
+Allow: /_publications/
+Allow: /_data/
 
 # Sitemap location
 Sitemap: https://mikelegajda.com/sitemap.xml

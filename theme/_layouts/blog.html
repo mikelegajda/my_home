@@ -17,6 +17,7 @@ layout: page
   {% if site.posts.size > 0 %}
   <div class="row">
     {% for post in site.posts %}
+    {% unless post.exclude_from_feed %}
     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-4">
       <article class="blog-card">
         {% if post.thumbnail-img or post.cover-img %}
@@ -72,6 +73,7 @@ layout: page
         </div>
       </article>
     </div>
+    {% endunless %}
     {% endfor %}
   </div>
   {% else %}

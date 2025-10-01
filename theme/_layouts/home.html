@@ -79,7 +79,7 @@ layout: page
 </div>
 
 <!-- Latest Blog Posts Section -->
-{% assign recent_posts = site.posts | limit: 3 %}
+{% assign recent_posts = site.posts | where_exp: "post", "post.exclude_from_feed != true" | limit: 3 %}
 {% if recent_posts.size > 0 %}
 <div class="section-divider">
   <h2 class="section-heading">Latest from the Blog</h2>

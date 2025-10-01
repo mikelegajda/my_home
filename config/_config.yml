@@ -333,6 +333,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-feed
+  - jekyll-redirect-from
 
 # SEO optimization settings
 lang: en_US

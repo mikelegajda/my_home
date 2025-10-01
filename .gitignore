@@ -27,6 +27,7 @@ Thumbs.db
 *.swo
 .vscode/
 .idea/
+local_docs/
 
 # Node modules (if using npm)
 node_modules/

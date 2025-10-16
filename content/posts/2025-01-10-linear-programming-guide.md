@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Coffee, Choices, and Constraints: A Friendly Dive into Linear Programming"
+title: "Coffee, Choices, and Constraints: A Friendly Intro to Linear Programming"
 subtitle: "A practical guide to solving optimization problems with linear programming"
 date: 2025-08-24 14:30:00 +0100
 author: "Mikele Gajda"

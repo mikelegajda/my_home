@@ -47,6 +47,20 @@ description: "Mask My Chat - A browser extension that automatically detects and 
   border-radius: 50%;
 }
 
+.mmc-hero-logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 12px rgba(247, 88, 133, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.mmc-hero-logo:hover {
+  transform: scale(1.05);
+}
+
 .mmc-hero h1 {
   font-size: 3rem;
   font-weight: 800;
@@ -301,6 +315,13 @@ description: "Mask My Chat - A browser extension that automatically detects and 
   border-radius: 24px;
   text-align: center;
   margin-bottom: 4rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.mmc-premium-content {
+  position: relative;
+  z-index: 2;
 }
 
 .mmc-premium h2 {
@@ -314,6 +335,20 @@ description: "Mask My Chat - A browser extension that automatically detects and 
   font-size: 1.25rem;
   margin-bottom: 2rem;
   opacity: 0.95;
+}
+
+.mmc-premium-screenshot {
+  max-width: 900px;
+  width: 100%;
+  margin: 2rem auto;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mmc-premium-screenshot:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
 }
 
 .mmc-premium-features {
@@ -379,6 +414,11 @@ description: "Mask My Chat - A browser extension that automatically detects and 
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .mmc-hero-logo {
+    width: 80px;
+    height: 80px;
+  }
+  
   .mmc-hero h1 {
     font-size: 2rem;
   }
@@ -398,6 +438,10 @@ description: "Mask My Chat - A browser extension that automatically detects and 
   .mmc-premium h2,
   .mmc-final-cta h2 {
     font-size: 2rem;
+  }
+  
+  .mmc-premium-screenshot {
+    border-radius: 8px;
   }
 }
 
@@ -423,6 +467,7 @@ description: "Mask My Chat - A browser extension that automatically detects and 
 <div class="mmc-page">
   <!-- Hero Section -->
   <section class="mmc-hero">
+    <img src="/assets/img/mask-my-chat/logo_600x600.png" alt="Mask My Chat Logo" class="mmc-hero-logo">
     <h1>Chat with AI, without sharing your life story</h1>
     <p class="subtitle">Mask My Chat automatically anonymizes names, emails, and other sensitive data before you send a message to an AI chatbot.</p>
     <a href="https://chromewebstore.google.com/detail/mask-my-chat/nfddbcjhmpemeolgbgoeghoiamlfogpf" class="mmc-cta-primary" target="_blank">Install for Chrome</a>
@@ -521,25 +566,29 @@ description: "Mask My Chat - A browser extension that automatically detects and 
 
   <!-- Premium Section -->
   <section class="mmc-premium">
-    <h2>Unlock More Power with Premium</h2>
-    <p>Take your privacy protection to the next level</p>
-    
-    <div class="mmc-premium-features">
-      <div class="mmc-premium-feature">
-        <span class="mmc-premium-feature-icon">✨</span>
-        <span>Unlimited custom names</span>
+    <div class="mmc-premium-content">
+      <h2>Unlock More Power with Premium</h2>
+      <p>Take your privacy protection to the next level</p>
+      
+      <!-- <img src="/assets/img/mask-my-chat/Mask My Chat - Premium_2.png" alt="Mask My Chat Premium Features" class="mmc-premium-screenshot">
+       -->
+      <div class="mmc-premium-features">
+        <div class="mmc-premium-feature">
+          <span class="mmc-premium-feature-icon">✨</span>
+          <span>Unlimited custom names</span>
+        </div>
+        <div class="mmc-premium-feature">
+          <span class="mmc-premium-feature-icon">🎯</span>
+          <span>Advanced masking rules</span>
+        </div>
+        <div class="mmc-premium-feature">
+          <span class="mmc-premium-feature-icon">🚀</span>
+          <span>Priority support</span>
+        </div>
       </div>
-      <div class="mmc-premium-feature">
-        <span class="mmc-premium-feature-icon">🎯</span>
-        <span>Advanced masking rules</span>
-      </div>
-      <div class="mmc-premium-feature">
-        <span class="mmc-premium-feature-icon">🚀</span>
-        <span>Priority support</span>
-      </div>
+      
+      <a href="https://mikeleengineer.gumroad.com/l/gqiab" class="mmc-cta-secondary" target="_blank">Learn More About Premium</a>
     </div>
-    
-    <a href="https://mikeleengineer.gumroad.com/l/gqiab" class="mmc-cta-secondary" target="_blank">Learn More About Premium</a>
   </section>
 
   <!-- Final CTA Section -->

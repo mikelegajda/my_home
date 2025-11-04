@@ -1,0 +1,551 @@
+---
+layout: page
+title: Mask My Chat
+subtitle: Chat with AI, without sharing your life story
+full-width: true
+description: "Mask My Chat - A browser extension that automatically detects and anonymizes personal information in AI chat conversations. Protect your privacy while using ChatGPT and other AI chatbots."
+---
+
+<style>
+/* Mask My Chat Landing Page Styles */
+:root {
+  --mmc-primary: #f75885;
+  --mmc-primary-dark: #d63d69;
+  --mmc-text-dark: #1f2937;
+  --mmc-text-light: #6b7280;
+  --mmc-bg-light: #f9fafb;
+  --mmc-bg-white: #ffffff;
+  --mmc-accent-blue: #3b82f6;
+  --mmc-accent-green: #10b981;
+}
+
+.mmc-page {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--mmc-text-dark);
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.mmc-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #fff5f8 0%, #f9fafb 100%);
+  border-radius: 24px;
+  margin-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.mmc-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(247, 88, 133, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.mmc-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--mmc-text-dark);
+  position: relative;
+  z-index: 1;
+}
+
+.mmc-hero .subtitle {
+  font-size: 1.25rem;
+  color: var(--mmc-text-light);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.mmc-cta-primary {
+  display: inline-block;
+  background: var(--mmc-primary);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(247, 88, 133, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.mmc-cta-primary:hover {
+  background: var(--mmc-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(247, 88, 133, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.mmc-hero-visual {
+  margin-top: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.mmc-demo-box {
+  background: #f8f9fa;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.mmc-demo-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--mmc-text-light);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mmc-demo-text {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.95rem;
+  color: var(--mmc-text-dark);
+  line-height: 1.6;
+}
+
+.mmc-demo-arrow {
+  text-align: center;
+  color: var(--mmc-primary);
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.mmc-masked-item {
+  background: var(--mmc-primary);
+  color: white;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* How It Works Section */
+.mmc-section {
+  padding: 4rem 0;
+  margin-bottom: 2rem;
+}
+
+.mmc-section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: var(--mmc-text-dark);
+}
+
+.mmc-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mmc-step {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mmc-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.mmc-step-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, var(--mmc-primary) 0%, #ff6b9d 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.mmc-step h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--mmc-text-dark);
+}
+
+.mmc-step p {
+  color: var(--mmc-text-light);
+  font-size: 1rem;
+}
+
+/* Features Section */
+.mmc-features {
+  background: var(--mmc-bg-light);
+  padding: 4rem 2rem;
+  border-radius: 24px;
+  margin-bottom: 4rem;
+}
+
+.mmc-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mmc-feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.mmc-feature-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.mmc-feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.mmc-feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--mmc-text-dark);
+}
+
+.mmc-feature-card p {
+  color: var(--mmc-text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Use Cases Section */
+.mmc-use-cases {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+}
+
+.mmc-use-cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.mmc-use-case {
+  background: linear-gradient(135deg, #fff 0%, #f9fafb 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 2px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.mmc-use-case:hover {
+  border-color: var(--mmc-primary);
+  box-shadow: 0 8px 24px rgba(247, 88, 133, 0.15);
+}
+
+.mmc-use-case-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.mmc-use-case h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--mmc-text-dark);
+}
+
+.mmc-use-case p {
+  color: var(--mmc-text-light);
+  line-height: 1.6;
+}
+
+/* Premium Section */
+.mmc-premium {
+  background: linear-gradient(135deg, var(--mmc-primary) 0%, #ff6b9d 100%);
+  color: white;
+  padding: 4rem 2rem;
+  border-radius: 24px;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.mmc-premium h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.mmc-premium p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.mmc-premium-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  text-align: left;
+}
+
+.mmc-premium-feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mmc-premium-feature-icon {
+  font-size: 1.5rem;
+}
+
+.mmc-cta-secondary {
+  display: inline-block;
+  background: white;
+  color: var(--mmc-primary);
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.mmc-cta-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  color: var(--mmc-primary);
+  text-decoration: none;
+}
+
+/* Final CTA Section */
+.mmc-final-cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--mmc-bg-light);
+  border-radius: 24px;
+  margin-bottom: 2rem;
+}
+
+.mmc-final-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--mmc-text-dark);
+}
+
+.mmc-final-cta p {
+  font-size: 1.25rem;
+  color: var(--mmc-text-light);
+  margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mmc-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .mmc-hero .subtitle {
+    font-size: 1rem;
+  }
+  
+  .mmc-section-title {
+    font-size: 2rem;
+  }
+  
+  .mmc-steps {
+    grid-template-columns: 1fr;
+  }
+  
+  .mmc-premium h2,
+  .mmc-final-cta h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mmc-step,
+.mmc-feature-card,
+.mmc-use-case {
+  animation: fadeInUp 0.6s ease-out;
+}
+</style>
+
+<div class="mmc-page">
+  <!-- Hero Section -->
+  <section class="mmc-hero">
+    <h1>Chat with AI, without sharing your life story</h1>
+    <p class="subtitle">Mask My Chat automatically anonymizes names, emails, and other sensitive data before you send a message to an AI chatbot.</p>
+    <a href="https://chromewebstore.google.com/detail/mask-my-chat/nfddbcjhmpemeolgbgoeghoiamlfogpf" class="mmc-cta-primary" target="_blank">Install for Chrome</a>
+    
+    <div class="mmc-hero-visual">
+      <div class="mmc-demo-box">
+        <div class="mmc-demo-label">Before Mask My Chat:</div>
+        <div class="mmc-demo-text">
+          Hi, I'm John Smith and my email is john.smith@company.com. Can you help me write a letter to my client Sarah Johnson at sarah@client.com?
+        </div>
+      </div>
+      
+      <div class="mmc-demo-arrow">↓</div>
+      
+      <div class="mmc-demo-box">
+        <div class="mmc-demo-label">After Mask My Chat:</div>
+        <div class="mmc-demo-text">
+          Hi, I'm <span class="mmc-masked-item">[NAME_1]</span> and my email is <span class="mmc-masked-item">[EMAIL_1]</span>. Can you help me write a letter to my client <span class="mmc-masked-item">[NAME_2]</span> at <span class="mmc-masked-item">[EMAIL_2]</span>?
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="mmc-section">
+    <h2 class="mmc-section-title">How It Works</h2>
+    <div class="mmc-steps">
+      <div class="mmc-step">
+        <div class="mmc-step-icon">✍️</div>
+        <h3>1. Type Your Message</h3>
+        <p>Write your message naturally in any AI chat interface, including sensitive information if needed.</p>
+      </div>
+      
+      <div class="mmc-step">
+        <div class="mmc-step-icon">🛡️</div>
+        <h3>2. Automatic Masking</h3>
+        <p>Our extension instantly detects and masks personal data like names, emails, and phone numbers in real-time.</p>
+      </div>
+      
+      <div class="mmc-step">
+        <div class="mmc-step-icon">🤝</div>
+        <h3>3. Send with Confidence</h3>
+        <p>Your anonymized message is sent to the AI, protecting your privacy without compromising functionality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="mmc-features">
+    <h2 class="mmc-section-title">Powerful Privacy Features</h2>
+    <div class="mmc-features-grid">
+      <div class="mmc-feature-card">
+        <div class="mmc-feature-icon">🤖</div>
+        <h3>Automatic Detection</h3>
+        <p>Intelligent algorithms automatically identify personal information including names, emails, phone numbers, and addresses.</p>
+      </div>
+      
+      
+      <div class="mmc-feature-card">
+        <div class="mmc-feature-icon">🌍</div>
+        <h3>Multi-Language Support</h3>
+        <p>Works seamlessly with multiple languages, protecting your data regardless of the language you speak.</p>
+      </div>
+      
+      <div class="mmc-feature-card">
+        <div class="mmc-feature-icon">⚡</div>
+        <h3>Lightning Fast</h3>
+        <p>Real-time masking with zero delay. Your workflow stays smooth and uninterrupted.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="mmc-use-cases">
+    <h2 class="mmc-section-title">Who Is This For?</h2>
+    <div class="mmc-use-cases-grid">
+      <div class="mmc-use-case">
+        <div class="mmc-use-case-icon">👨‍💻</div>
+        <h3>Developers</h3>
+        <p>Test code and debug with real-world examples without exposing client or user data. Perfect for discussing sensitive projects with AI assistants.</p>
+      </div>
+      
+      <div class="mmc-use-case">
+        <div class="mmc-use-case-icon">💼</div>
+        <h3>Business Professionals</h3>
+        <p>Get AI assistance with emails, documents, and communications while protecting client confidentiality and company information.</p>
+      </div>
+      
+      <div class="mmc-use-case">
+        <div class="mmc-use-case-icon">🔒</div>
+        <h3>Privacy-Conscious Users</h3>
+        <p>Enjoy the benefits of AI chatbots without worrying about your personal information being stored or processed by AI models.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Section -->
+  <section class="mmc-premium">
+    <h2>Unlock More Power with Premium</h2>
+    <p>Take your privacy protection to the next level</p>
+    
+    <div class="mmc-premium-features">
+      <div class="mmc-premium-feature">
+        <span class="mmc-premium-feature-icon">✨</span>
+        <span>Unlimited custom names</span>
+      </div>
+      <div class="mmc-premium-feature">
+        <span class="mmc-premium-feature-icon">🎯</span>
+        <span>Advanced masking rules</span>
+      </div>
+      <div class="mmc-premium-feature">
+        <span class="mmc-premium-feature-icon">🚀</span>
+        <span>Priority support</span>
+      </div>
+    </div>
+    
+    <a href="https://mikeleengineer.gumroad.com/l/gqiab" class="mmc-cta-secondary" target="_blank">Learn More About Premium</a>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="mmc-final-cta">
+    <h2>Ready to Protect Your Privacy?</h2>
+    <p>Join our users who chat with confidence, knowing their personal information stays private.</p>
+    <a href="https://chromewebstore.google.com/detail/maddficmpcofebgjpbgpbgjgkpniamkk?utm_source=item-share-cb" class="mmc-cta-primary" target="_blank">Install Mask My Chat for Chrome</a>
+  </section>
+</div>

@@ -29,7 +29,7 @@ navbar-links:
   Publications: "publications"
   CV: "curriculum"
   About Me: "aboutme"
-  Mask My Chat: "mask-my-chat"
+  # Mask My Chat removed
 
 ################
 # --- Logo --- #
